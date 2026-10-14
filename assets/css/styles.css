@@ -331,7 +331,7 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .person__photo { width: 78%; aspect-ratio: 4 / 5; background: var(--surface-raised); }
 .person__name { margin-top: 10px; font-size: 24px; line-height: 1.2; font-weight: 600; }
 .person__role { font: 400 13px/1.4 var(--font-mono); letter-spacing: 0.08em; color: var(--accent); }
-.person__title { margin-top: -6px; font-size: 13px; line-height: 1.4; color: var(--ink-muted); }
+.person__title { margin-top: -6px; font-size: 14px; line-height: 1.4} /*; color: var(--ink-muted); }*/
 .person__bio p { font-size: 13px; line-height: 1.6; font-weight: 300; }
 [data-theme="dark"] .person__bio p { color: var(--body-light); }
 [data-theme="light"] .person__bio p { color: var(--body-dark); }
