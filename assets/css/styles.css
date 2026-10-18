@@ -11,6 +11,7 @@
      6. Homepage sections (hero, about, vision/mission/purpose, team, projects, get involved)
      7. Inner pages (page header, team cards, project rows, closing band)
      7b. MSI Lab page
+     7c. Partner / Sponsor page
      8. Footer
      9. Placeholders (remove once the team's text is in)
     10. Phone / tablet adjustments
@@ -506,6 +507,86 @@ html:not(.js) .read-more { display: none; }
   .msi-cards { grid-template-columns: 1fr; gap: 64px; }
   .msi-pillars { grid-template-columns: 1fr; gap: 40px; }
   .msi-stat__num { font-size: 44px; }
+}
+
+/* 7c. PARTNER / SPONSOR PAGE (partner.html) --------------------------------- */
+
+/* Hero: text on the left, team photo running off the right edge */
+.p-hero { position: relative; min-height: 780px; background: var(--black); color: var(--white); overflow: hidden; }
+.p-hero__header { position: relative; z-index: 3; }
+.p-hero__body { position: relative; z-index: 2; }
+.p-hero__text { max-width: 560px; padding: 120px 0 140px; gap: 22px; }
+.p-hero__title { font-size: 72px; line-height: 0.94; letter-spacing: -0.03em; }
+.p-hero__accent { display: block; color: var(--mint); }
+.p-hero__monash { display: block; margin-top: 0.12em; font-size: 0.62em; letter-spacing: -0.02em; }
+.p-hero__text .btn { align-self: flex-start; margin-top: 10px; }
+.p-hero__lead { margin-top: 6px; max-width: 40ch; font-size: 19px; line-height: 1.55; color: #e4e9eb; }
+.p-hero__photo {
+  position: absolute; z-index: 1; top: 0; right: -120px; height: 100%;
+  aspect-ratio: 1340 / 1240;
+}
+.p-hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.p-hero__photo::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.75) 14%, rgba(0, 0, 0, 0) 38%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 30%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 16%);
+}
+
+/* 01 Partnership benefits */
+.p-benefits { padding: 112px 0 88px; }
+.p-rule { display: block; width: 160px; height: 1px; margin: 4px 0 6px; background: var(--mint-deep); }
+.p-feature { display: grid; grid-template-columns: 6fr 5fr; gap: 72px; align-items: center; margin-top: 64px; }
+.p-feature__text { gap: 16px; }
+.p-feature__text h3, .p-benefit h3 { font-size: 24px; line-height: 30px; font-weight: 600; color: var(--black); }
+.p-feature__text p { font-size: 19px; line-height: 1.55; color: var(--body-dark); }
+.p-feature__photo { aspect-ratio: 4 / 3; }
+
+.p-three {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 48px;
+  margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--mint-deep);
+}
+.p-benefit { display: flex; flex-direction: column; gap: 10px; }
+.p-benefit h3 { min-height: 60px; }            /* two lines, so the green lines stay level */
+.p-benefit p { font-size: 15px; line-height: 24px; color: var(--body-dark); }
+.p-benefit__link {
+  align-self: flex-start; margin-top: 6px;
+  font: 400 13px/1.4 var(--font-mono); letter-spacing: 0.08em;
+  color: var(--mint-deep); text-decoration: none;
+}
+.p-benefit__link:hover { text-decoration: underline; }
+.nowrap { white-space: nowrap; }
+
+/* Full-width photo band that fades into the closing section */
+.p-band { position: relative; background: var(--black); }
+.p-band img { display: block; width: 100%; height: 400px; object-fit: cover; object-position: 50% 70%; }
+.p-band::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, #000 100%);
+}
+
+/* Closing */
+.p-closing { padding: 96px 0 128px; }
+.p-closing .wrap { gap: 24px; }
+.p-closing__sub { max-width: 52ch; font-size: 19px; line-height: 1.55; font-weight: 300; color: var(--body-light); }
+
+@media (max-width: 1100px) {
+  .p-hero__photo { right: -240px; }
+}
+@media (max-width: 860px) {
+  .p-hero { min-height: 0; }
+  .p-hero__text { max-width: none; padding: 48px 0 40px; }
+  .p-hero__title { font-size: 52px; }
+  .p-hero__photo { position: relative; right: auto; width: 100%; height: auto; }
+  .p-hero__photo::after {
+    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 22%);
+  }
+  .p-benefits { padding: var(--space-16) 0; }
+  .p-feature { grid-template-columns: 1fr; gap: var(--space-12); }
+  .p-three { grid-template-columns: 1fr; gap: 40px; margin-top: 64px; }
+  .p-benefit h3 { min-height: 0; }
+  .p-band img { height: 240px; }
 }
 
 /* 8. FOOTER ---------------------------------------------------------------- */
