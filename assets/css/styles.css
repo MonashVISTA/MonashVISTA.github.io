@@ -402,8 +402,8 @@ html:not(.js) .read-more { display: none; }
 .msi-about { padding: 112px 0 120px; }
 .msi-about__grid { display: grid; grid-template-columns: 6fr 5fr; gap: 72px; align-items: center; }
 .msi-about__text { gap: 20px; }
-.msi-about__text p { font-size: 15px; line-height: 1.6; color: var(--body-dark); }
-.msi-about__text .msi-about__lead { margin-top: 12px; font-size: 17px; line-height: 1.65; font-style: italic; }
+.msi-about__text p { font-size: 19px; line-height: 1.55; color: var(--body-dark); }
+.msi-about__text .msi-about__lead { margin-top: 12px; font-style: italic; }
 .msi-about__link {
   align-self: flex-start; margin-top: 8px;
   font: 400 13px/1.4 var(--font-mono); letter-spacing: 0.08em;
@@ -417,15 +417,15 @@ html:not(.js) .read-more { display: none; }
 
 /* 02 Digital infrastructure */
 .msi-infra { padding: 112px 0 128px; }
-.msi-intro { margin-top: 20px; font-size: 17px; line-height: 1.65; color: var(--body-dark); }
+.msi-intro { margin-top: 20px; font-size: 19px; line-height: 1.55; color: var(--body-dark); }
 .msi-intro--dark { max-width: 60ch; font-weight: 300; color: var(--body-light); }
 
-.msi-pillars { list-style: none; margin: 56px 0 0; padding: 0; display: flex; flex-direction: column; gap: 48px; }
-.msi-pillar { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: baseline; }
-.msi-pillar__num { font: 400 16px/1.25 var(--font-mono); letter-spacing: 0.04em; color: var(--mint-deep); }
-.msi-pillar__body { display: flex; flex-direction: column; gap: 10px; }
-.msi-pillar__body h3 { font-size: 20px; line-height: 1.25; font-weight: 600; color: var(--black); }
-.msi-pillar__body p { max-width: 78ch; font-size: 15px; line-height: 1.6; color: var(--body-dark); }
+.msi-pillars { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 64px; }
+.msi-pillar { display: flex; flex-direction: column; gap: 10px; }
+/* whole-pixel line heights keep the 1px lines crisp and identical */
+.msi-pillar h3 { font-size: 24px; line-height: 30px; font-weight: 600; color: var(--black); }
+.msi-pillar__rule { display: block; width: 160px; height: 1px; margin: 4px 0 6px; background: var(--mint-deep); }
+.msi-pillar p { font-size: 15px; line-height: 24px; color: var(--body-dark); }
 
 .msi-stat {
   display: flex; align-items: baseline; gap: 20px;
@@ -453,7 +453,7 @@ html:not(.js) .read-more { display: none; }
 .msi-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px 56px; margin-top: 64px; }
 .msi-card { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .msi-card h3 { margin-top: 10px; font-stretch: 112%; font-size: 24px; line-height: 1.15; font-weight: 700; color: var(--white); }
-.msi-card p { font-size: 15px; line-height: 1.6; font-weight: 300; color: var(--body-light); }
+.msi-card p { font-size: 19px; line-height: 1.55; font-weight: 300; color: var(--body-light); }
 
 /* Every project image sits in the same 16:10 frame so the tracking brackets line up */
 .msi-frame { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
@@ -504,6 +504,7 @@ html:not(.js) .read-more { display: none; }
   .msi-about__grid { grid-template-columns: 1fr; gap: var(--space-12); }
   .msi-sensors { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
   .msi-cards { grid-template-columns: 1fr; gap: 64px; }
+  .msi-pillars { grid-template-columns: 1fr; gap: 40px; }
   .msi-stat__num { font-size: 44px; }
 }
 
