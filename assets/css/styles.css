@@ -10,6 +10,7 @@
      5. Header & nav
      6. Homepage sections (hero, about, vision/mission/purpose, team, projects, get involved)
      7. Inner pages (page header, team cards, project rows, closing band)
+     7b. MSI Lab page
      8. Footer
      9. Placeholders (remove once the team's text is in)
     10. Phone / tablet adjustments
@@ -385,6 +386,126 @@ html:not(.js) .read-more { display: none; }
 .closing .wrap { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; }
 .closing__text { max-width: 34ch; font-stretch: 112%; font-size: 26px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; }
 .closing__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); }
+
+/* 7b. MSI LAB PAGE (msi-lab.html) ------------------------------------------ */
+
+/* A lighter off-white used on the MSI Lab page */
+[data-theme="light"].soft-light { --surface: #f2f5f4; }
+
+/* Header: title, lead, then the full-width digital twin scan */
+.msi-header__body { padding-bottom: 72px; }
+.msi-header__title { max-width: 16ch; }
+.msi-header__media { padding-bottom: 112px; }
+.msi-header__media img { display: block; width: 100%; height: auto; }
+
+/* 01 About the lab */
+.msi-about { padding: 112px 0 120px; }
+.msi-about__grid { display: grid; grid-template-columns: 6fr 5fr; gap: 72px; align-items: center; }
+.msi-about__text { gap: 20px; }
+.msi-about__text p { font-size: 15px; line-height: 1.6; color: var(--body-dark); }
+.msi-about__text .msi-about__lead { margin-top: 12px; font-size: 17px; line-height: 1.65; font-style: italic; }
+.msi-about__link {
+  align-self: flex-start; margin-top: 8px;
+  font: 400 13px/1.4 var(--font-mono); letter-spacing: 0.08em;
+  color: var(--mint-deep); text-decoration: none;
+}
+.msi-about__link:hover { text-decoration: underline; }
+.msi-about__photo { aspect-ratio: 4 / 5; }
+
+/* Thin green line between About and Digital infrastructure */
+.msi-rule { margin: 0; border: 0; border-top: 1px solid var(--mint-deep); }
+
+/* 02 Digital infrastructure */
+.msi-infra { padding: 112px 0 128px; }
+.msi-intro { margin-top: 20px; font-size: 17px; line-height: 1.65; color: var(--body-dark); }
+.msi-intro--dark { max-width: 60ch; font-weight: 300; color: var(--body-light); }
+
+.msi-pillars { list-style: none; margin: 56px 0 0; padding: 0; display: flex; flex-direction: column; gap: 48px; }
+.msi-pillar { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.msi-pillar__num { font: 400 16px/1.25 var(--font-mono); letter-spacing: 0.04em; color: var(--mint-deep); }
+.msi-pillar__body { display: flex; flex-direction: column; gap: 10px; }
+.msi-pillar__body h3 { font-size: 20px; line-height: 1.25; font-weight: 600; color: var(--black); }
+.msi-pillar__body p { max-width: 78ch; font-size: 15px; line-height: 1.6; color: var(--body-dark); }
+
+.msi-stat {
+  display: flex; align-items: baseline; gap: 20px;
+  margin-top: 88px; padding-top: 28px; border-top: 1px solid var(--mint-deep);
+}
+.msi-stat__num { font-stretch: 118%; font-size: 56px; line-height: 1; font-weight: 700; color: var(--mint-deep); }
+.msi-stat__label { font: 400 13px/1.4 var(--font-mono); letter-spacing: 0.06em; color: var(--body-dark); }
+
+.msi-sensors {
+  list-style: none; margin: 32px 0 0; padding: 20px;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px;
+}
+.msi-sensors li { display: flex; flex-direction: column; gap: 12px; }
+.msi-sensors span { font: 400 12px/1.4 var(--font-mono); letter-spacing: 0.06em; color: var(--body-dark); text-align: center; }
+.msi-sensors__tile {
+  aspect-ratio: 1 / 1; background: var(--white);
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+}
+.msi-sensors__tile img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.msi-sensors__tile--photo { padding: 0; overflow: hidden; }
+.msi-sensors__tile--photo img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; object-position: 47% center; }
+
+/* 03 Lab projects */
+.msi-projects { padding: 112px 0 136px; }
+.msi-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px 56px; margin-top: 64px; }
+.msi-card { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.msi-card h3 { margin-top: 10px; font-stretch: 112%; font-size: 24px; line-height: 1.15; font-weight: 700; color: var(--white); }
+.msi-card p { font-size: 15px; line-height: 1.6; font-weight: 300; color: var(--body-light); }
+
+/* Every project image sits in the same 16:10 frame so the tracking brackets line up */
+.msi-frame { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.msi-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.msi-frame--contain img { object-fit: contain; }
+
+/* Smart Cities: hazard photos linked to their map markers */
+.city { background: #0d1114; }
+.city img { position: absolute; }
+.city__aerial { left: 0; top: 44%; width: 100%; height: 56% !important; }
+.city__lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.city__lines line { stroke: #ff3b30; stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+.city__dot {
+  position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px;
+  border-radius: 50%; background: #ff3b30; box-shadow: 0 0 0 2px var(--black);
+}
+.city__hazard { top: 1px; width: 20% !important; height: calc(36.8% - 1px) !important; box-shadow: 0 0 0 1px #ff3b30; }
+.city__car { left: 0; top: 0; width: 19% !important; height: 22.08% !important; }
+.city__popup {
+  right: 2%; bottom: 2.88%; width: 34% !important; height: 22% !important;
+  border-radius: 4px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+}
+.city__key {
+  position: absolute; left: 0; top: 33.6%; max-width: 19%;
+  display: flex; align-items: flex-start; gap: 6px;
+  font: 400 8px/1.3 var(--font-mono); letter-spacing: 0.02em; color: #9aa3a9;
+}
+.city__key-dot { flex: 0 0 7px; height: 7px; margin-top: 1px; border-radius: 50%; background: #ff3b30; }
+
+/* Healthcare: digital twin strip above three pose shots */
+.health { display: flex; flex-direction: column; gap: 8px; }
+.health__twin { flex: 38 1 0; min-height: 0; overflow: hidden; background: #0d1114; }
+.health__poses { flex: 62 1 0; min-height: 0; display: flex; gap: 8px; }
+.health__poses figure { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.health__poses figure > div { flex: 1 1 0; min-height: 0; overflow: hidden; background: #0d1114; }
+.health__poses img { object-position: center top; }
+.health__poses figcaption { font: 400 10px/1 var(--font-mono); letter-spacing: 0.04em; color: #9aa3a9; text-align: center; }
+
+/* Smart Factories: ratchet detection beside the production line */
+.factory { display: flex; gap: 8px; }
+.factory__ratchet { flex: 0 0 auto; height: 100%; aspect-ratio: 444 / 621; overflow: hidden; background: #0d1114; }
+.factory__line { flex: 1 1 0; min-width: 0; height: 100%; overflow: hidden; background: #0d1114; }
+
+@media (max-width: 860px) {
+  .msi-header__body { padding-bottom: 48px; }
+  .msi-header__media { padding-bottom: 72px; }
+  .msi-about, .msi-infra, .msi-projects { padding: var(--space-16) 0; }
+  .msi-about__grid { grid-template-columns: 1fr; gap: var(--space-12); }
+  .msi-sensors { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
+  .msi-cards { grid-template-columns: 1fr; gap: 64px; }
+  .msi-stat__num { font-size: 44px; }
+}
 
 /* 8. FOOTER ---------------------------------------------------------------- */
 .site-footer { padding: 80px 0 40px; }
