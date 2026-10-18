@@ -305,16 +305,20 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .involve__grid { display: flex; flex-wrap: wrap; gap: var(--space-6); margin-top: var(--space-8); align-items: flex-start; }
 .involve__kicker { font: 500 12px/1.3 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 .partner {
-  flex: 7 1 460px; min-width: 0; gap: 20px;
-  background: var(--mint-wash); padding: 56px 56px 64px;
+  flex: 0 1 600px; min-width: 0; gap: 20px;
+  background: #dcf5e6; padding: 56px 56px 64px;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, 0 100%);
 }
-.partner h3 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1; }
+.partner h3 { font-size: 32px; line-height: 1.1; font-weight: 600; }
+.partner p { max-width: 52ch; font-size: 16px; line-height: 1.6; color: var(--body-dark); }
 .partner .btn { align-self: flex-start; margin-top: var(--space-3); }
+.partner__photo { margin: 28px -56px -64px; aspect-ratio: 16 / 9; overflow: hidden; }   /* runs to the card's edges */
+.partner__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .join { flex: 5 1 340px; min-width: 0; margin-top: 88px; }
 .join .cut { aspect-ratio: 3 / 2; }
 .join__body { padding: var(--space-8) 36px 40px; gap: var(--space-4); }
 .join h3 { font-size: 32px; line-height: 1.1; font-weight: 600; }
+.join p { font-size: 16px; line-height: 1.6; font-weight: 300; color: var(--body-light); }
 .join .btn { align-self: flex-start; margin-top: var(--space-2); }
 
 /* 7. INNER PAGES (team.html, projects.html) -------------------------------- */
@@ -322,6 +326,18 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 /* Page header with the green glow */
 .page-header__body { padding-top: 112px; padding-bottom: 120px; gap: 20px; }
 .page-header__body p { margin-top: var(--space-2); max-width: 46ch; color: var(--body-light); }
+
+/* Team page header: the team photo under a soft dark overlay, fading into black */
+.t-hero { position: relative; overflow: hidden; background: var(--black); }
+.t-hero__bg { position: absolute; left: 0; top: -11vw; width: 100%; height: auto; display: block; }
+.t-hero__shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.55);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 72%, rgba(0, 0, 0, 0.65) 84%, rgba(0, 0, 0, 0.9) 94%, #000 100%);
+}
+.t-hero .site-header, .t-hero .page-header__body { position: relative; z-index: 2; }
+.t-hero .page-header__body { padding-top: max(240px, calc(28vw - 40px)); padding-bottom: 72px; }
+.t-hero .page-header__body p { color: #e4e9eb; }
 
 /* Section on an inner page */
 .page-section { padding: 96px 0 112px; }
@@ -511,28 +527,22 @@ html:not(.js) .read-more { display: none; }
 
 /* 7c. PARTNER / SPONSOR PAGE (partner.html) --------------------------------- */
 
-/* Hero: text on the left, team photo running off the right edge */
-.p-hero { position: relative; min-height: 780px; background: var(--black); color: var(--white); overflow: hidden; }
+/* Hero: text over the lab photo, under a soft dark overlay */
+.p-hero { position: relative; min-height: 820px; background: var(--black); color: var(--white); overflow: hidden; }
+.p-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; }
+.p-hero__shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.55);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.85) 100%);
+}
 .p-hero__header { position: relative; z-index: 3; }
 .p-hero__body { position: relative; z-index: 2; }
-.p-hero__text { max-width: 560px; padding: 120px 0 140px; gap: 22px; }
+.p-hero__text { max-width: 640px; padding: 150px 0 120px; gap: 22px; }
 .p-hero__title { font-size: 72px; line-height: 0.94; letter-spacing: -0.005em; }
 .p-hero__accent { display: block; color: var(--mint); }
 .p-hero__monash { display: block; margin-top: 0.12em; font-size: 0.62em; letter-spacing: -0.02em; }
 .p-hero__text .btn { align-self: flex-start; margin-top: 10px; }
 .p-hero__lead { margin-top: 6px; max-width: 40ch; font-size: 19px; line-height: 1.55; color: #e4e9eb; }
-.p-hero__photo {
-  position: absolute; z-index: 1; top: 0; right: 0; height: 100%;
-  width: max(58vw, 640px);   /* grows with the screen so wide monitors show more photo */
-}
-.p-hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
-.p-hero__photo::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.97) 5%, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.78) 15%, rgba(0, 0, 0, 0.62) 20%, rgba(0, 0, 0, 0.45) 25%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.17) 35%, rgba(0, 0, 0, 0.07) 40%, rgba(0, 0, 0, 0) 45%),   /* eased fade: no visible edge */
-    linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 30%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 16%);
-}
 
 /* 01 Partnership benefits */
 .p-benefits { padding: 112px 0 120px; }
@@ -560,7 +570,7 @@ html:not(.js) .read-more { display: none; }
 
 /* Full-width photo band that fades into the closing section */
 .p-band { position: relative; background: var(--black); }
-.p-band img { display: block; width: 100%; height: clamp(320px, 28vw, 560px); object-fit: cover; object-position: 50% 20%; }   /* height scales with screen width so heads are never cut off */
+.p-band img { display: block; width: 100%; height: clamp(320px, 28vw, 560px); object-fit: cover; object-position: 50% 18%; }   /* height scales with screen width so heads are never cut off */
 .p-band::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, #000 100%);
@@ -572,17 +582,12 @@ html:not(.js) .read-more { display: none; }
 .p-closing__sub { max-width: 52ch; font-size: 19px; line-height: 1.55; font-weight: 300; color: var(--body-light); }
 
 @media (max-width: 1100px) {
-  .p-hero__photo { width: 50vw; }
   .p-hero__title { font-size: 60px; }
 }
 @media (max-width: 860px) {
   .p-hero { min-height: 0; }
-  .p-hero__text { max-width: none; padding: 48px 0 40px; }
+  .p-hero__text { max-width: none; padding: 72px 0 80px; }
   .p-hero__title { font-size: 52px; }
-  .p-hero__photo { position: relative; right: auto; width: 100%; height: auto; aspect-ratio: 1340 / 1240; }
-  .p-hero__photo::after {
-    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 22%);
-  }
   .p-benefits { padding: var(--space-16) 0; }
   .p-feature { grid-template-columns: 1fr; gap: var(--space-12); }
   .p-three { grid-template-columns: 1fr; gap: 40px; margin-top: 64px; }
@@ -647,9 +652,12 @@ html:not(.js) .read-more { display: none; }
   .home-team__inset, .home-projects__inset { position: static; width: 70%; margin: 16px 0 0 auto; }
   .home-projects__text h2 { font-size: 40px; }
   .partner { padding: 40px 24px 48px; }
+  .partner__photo { margin: 20px -24px -48px; }
   .join { margin-top: 0; }
   .join__body { padding: var(--space-6) var(--space-6) var(--space-8); }
   .page-header__body { padding-top: 64px; padding-bottom: 72px; }
+  .t-hero__bg { top: 0; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }   /* phones: fade the photo's own bottom edge */
+  .t-hero .page-header__body { padding-top: max(180px, calc(62vw - 40px)); padding-bottom: 56px; }
   .page-section { padding: var(--space-16) 0; }
   .project-list { padding: var(--space-16) 0 var(--space-24); }
   .project-list .wrap { gap: var(--space-24); }
