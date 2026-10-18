@@ -577,7 +577,7 @@ html:not(.js) .read-more { display: none; }
 
 /* Full-width photo band that fades into the closing section */
 .p-band { position: relative; background: var(--black); }
-.p-band img { display: block; width: 100%; height: clamp(360px, 34vw, 680px); object-fit: cover; object-position: 50% 42%; }   /* height scales with screen width so heads are never cut off */
+.p-band img { display: block; width: 100%; height: clamp(320px, 31vw, 620px); object-fit: cover; object-position: 50% 52%; }   /* height scales with screen width so heads are never cut off */
 .p-band::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, #000 100%);
