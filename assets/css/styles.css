@@ -255,8 +255,8 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .hero__boxes .track { position: absolute; left: 0; top: 0; padding: 0; will-change: transform; }
 .hero__content { position: relative; padding-top: 168px; padding-bottom: 120px; }
 .hero__title { display: flex; flex-direction: column; font-stretch: 118%; line-height: 0.86; }
-.hero__monash { font-size: clamp(45px, 8vw, 95px); font-weight: 500; letter-spacing: -0.02em; }
-.hero__vista  { font-size: clamp(85px, 16.4vw, 160px); font-weight: 700; letter-spacing: -0.035em; margin-left: -0.03em; }
+.hero__monash { font-size: clamp(38px, 8vw, 81px); font-weight: 500; letter-spacing: -0.02em; }
+.hero__vista  { font-size: clamp(75px, 16.4vw, 140px); font-weight: 700; letter-spacing: -0.035em; margin-left: -0.03em; }
 .hero__name { margin-top: 36px; max-width: 660px; font-size: clamp(19px, 2vw, 26px); line-height: 1.35; font-weight: 300; }
 .hero__name b { font-weight: 600; color: var(--mint); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-12); }
