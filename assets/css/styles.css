@@ -329,14 +329,14 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 
 /* Team page header: the team photo under a soft dark overlay, fading into black */
 .t-hero { position: relative; overflow: hidden; background: var(--black); }
-.t-hero__bg { position: absolute; left: 0; top: -11vw; width: 100%; height: auto; display: block; }
+.t-hero__bg { position: absolute; left: 0; top: -12.5vw; width: 100%; height: auto; display: block; }
 .t-hero__shade {
   position: absolute; inset: 0; pointer-events: none;
   background-color: rgba(0, 0, 0, 0.55);
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 72%, rgba(0, 0, 0, 0.65) 84%, rgba(0, 0, 0, 0.9) 94%, #000 100%);
 }
 .t-hero .site-header, .t-hero .page-header__body { position: relative; z-index: 2; }
-.t-hero .page-header__body { padding-top: max(240px, calc(28vw - 40px)); padding-bottom: 72px; }
+.t-hero .page-header__body { padding-top: max(240px, calc(28vw - 110px)); padding-bottom: 72px; }
 .t-hero .page-header__body p { color: #e4e9eb; }
 
 /* Section on an inner page */
