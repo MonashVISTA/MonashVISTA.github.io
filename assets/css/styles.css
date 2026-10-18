@@ -397,6 +397,13 @@ html:not(.js) .read-more { display: none; }
 .prow__glow { position: absolute; inset: -90px -60px; pointer-events: none;
   background: radial-gradient(ellipse 60% 60% at var(--gx, 35%) 55%, rgba(7,92,66,.55) 0%, rgba(5,46,34,.35) 40%, rgba(0,0,0,0) 72%); }
 .prow--flip .prow__glow { --gx: 65%; }
+.prow__media .prow__wide { aspect-ratio: 16 / 9; }           /* LiDAR photo */
+.prow__media .prow__platform { aspect-ratio: 1600 / 994; }   /* platform photo, uncropped */
+/* Exoskeleton: front and back views side by side, one chevron cut on each outer corner */
+.prow__pair { position: relative; display: flex; gap: 20px; }
+.prow__media .prow__pair .cut { flex: 1 1 0; min-width: 0; aspect-ratio: 402 / 424; background: #0d1114; }
+.prow__pair-left  { clip-path: polygon(var(--cut-lg) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut-lg)); }
+.prow__pair-right { clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, 0 100%); }
 
 /* Closing band (green glow) */
 .closing { padding: 120px 0 128px; }
@@ -570,14 +577,14 @@ html:not(.js) .read-more { display: none; }
 
 /* Full-width photo band that fades into the closing section */
 .p-band { position: relative; background: var(--black); }
-.p-band img { display: block; width: 100%; height: clamp(320px, 28vw, 560px); object-fit: cover; object-position: 50% 18%; }   /* height scales with screen width so heads are never cut off */
+.p-band img { display: block; width: 100%; height: clamp(360px, 34vw, 680px); object-fit: cover; object-position: 50% 42%; }   /* height scales with screen width so heads are never cut off */
 .p-band::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, #000 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, #000 100%);
 }
 
 /* Closing */
-.p-closing { padding: 96px 0 128px; }
+.p-closing { padding: 136px 0 128px; }
 .p-closing .wrap { gap: 24px; }
 .p-closing__sub { max-width: 52ch; font-size: 19px; line-height: 1.55; font-weight: 300; color: var(--body-light); }
 
