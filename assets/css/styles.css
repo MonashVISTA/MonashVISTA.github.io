@@ -385,7 +385,7 @@ html:not(.js) .read-more { display: none; }
 /* Closing band (green glow) */
 .closing { padding: 120px 0 128px; }
 .closing .wrap { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; }
-.closing__text { max-width: 34ch; font-stretch: 112%; font-size: 26px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; }
+.closing__text { max-width: 34ch; font-stretch: 112%; font-size: 33px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; }
 .closing__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); }
 
 /* 7b. MSI LAB PAGE (msi-lab.html) ------------------------------------------ */
@@ -419,7 +419,7 @@ html:not(.js) .read-more { display: none; }
 /* 02 Digital infrastructure */
 .msi-infra { padding: 112px 0 128px; }
 .msi-intro { margin-top: 20px; font-size: 19px; line-height: 1.55; color: var(--body-dark); }
-.msi-intro--dark { max-width: 60ch; font-weight: 300; color: var(--body-light); }
+.msi-intro--dark { max-width: 92ch; font-weight: 300; color: var(--body-light); }
 
 .msi-pillars { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 64px; }
 .msi-pillar { display: flex; flex-direction: column; gap: 10px; }
@@ -454,7 +454,7 @@ html:not(.js) .read-more { display: none; }
 .msi-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px 56px; margin-top: 64px; }
 .msi-card { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .msi-card h3 { margin-top: 10px; font-stretch: 112%; font-size: 24px; line-height: 1.15; font-weight: 700; color: var(--white); }
-.msi-card p { font-size: 19px; line-height: 1.55; font-weight: 300; color: var(--body-light); }
+.msi-card p { font-size: 15px; line-height: 24px; font-weight: 300; color: var(--body-light); }
 
 /* Every project image sits in the same 16:10 frame so the tracking brackets line up */
 .msi-frame { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
