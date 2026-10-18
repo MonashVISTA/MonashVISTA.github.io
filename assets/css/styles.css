@@ -516,26 +516,26 @@ html:not(.js) .read-more { display: none; }
 .p-hero__header { position: relative; z-index: 3; }
 .p-hero__body { position: relative; z-index: 2; }
 .p-hero__text { max-width: 560px; padding: 120px 0 140px; gap: 22px; }
-.p-hero__title { font-size: 72px; line-height: 0.94; letter-spacing: -0.03em; }
+.p-hero__title { font-size: 72px; line-height: 0.94; letter-spacing: -0.005em; }
 .p-hero__accent { display: block; color: var(--mint); }
 .p-hero__monash { display: block; margin-top: 0.12em; font-size: 0.62em; letter-spacing: -0.02em; }
 .p-hero__text .btn { align-self: flex-start; margin-top: 10px; }
 .p-hero__lead { margin-top: 6px; max-width: 40ch; font-size: 19px; line-height: 1.55; color: #e4e9eb; }
 .p-hero__photo {
-  position: absolute; z-index: 1; top: 0; right: -120px; height: 100%;
-  aspect-ratio: 1340 / 1240;
+  position: absolute; z-index: 1; top: 0; right: 0; height: 100%;
+  width: max(58vw, 640px);   /* grows with the screen so wide monitors show more photo */
 }
-.p-hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.p-hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
 .p-hero__photo::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.75) 14%, rgba(0, 0, 0, 0) 38%),
+    linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.97) 5%, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.78) 15%, rgba(0, 0, 0, 0.62) 20%, rgba(0, 0, 0, 0.45) 25%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.17) 35%, rgba(0, 0, 0, 0.07) 40%, rgba(0, 0, 0, 0) 45%),   /* eased fade: no visible edge */
     linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 30%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 16%);
 }
 
 /* 01 Partnership benefits */
-.p-benefits { padding: 112px 0 88px; }
+.p-benefits { padding: 112px 0 120px; }
 .p-rule { display: block; width: 160px; height: 1px; margin: 4px 0 6px; background: var(--mint-deep); }
 .p-feature { display: grid; grid-template-columns: 6fr 5fr; gap: 72px; align-items: center; margin-top: 64px; }
 .p-feature__text { gap: 16px; }
@@ -560,7 +560,7 @@ html:not(.js) .read-more { display: none; }
 
 /* Full-width photo band that fades into the closing section */
 .p-band { position: relative; background: var(--black); }
-.p-band img { display: block; width: 100%; height: 400px; object-fit: cover; object-position: 50% 70%; }
+.p-band img { display: block; width: 100%; height: clamp(320px, 28vw, 560px); object-fit: cover; object-position: 50% 20%; }   /* height scales with screen width so heads are never cut off */
 .p-band::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, #000 100%);
@@ -572,13 +572,14 @@ html:not(.js) .read-more { display: none; }
 .p-closing__sub { max-width: 52ch; font-size: 19px; line-height: 1.55; font-weight: 300; color: var(--body-light); }
 
 @media (max-width: 1100px) {
-  .p-hero__photo { right: -240px; }
+  .p-hero__photo { width: 50vw; }
+  .p-hero__title { font-size: 60px; }
 }
 @media (max-width: 860px) {
   .p-hero { min-height: 0; }
   .p-hero__text { max-width: none; padding: 48px 0 40px; }
   .p-hero__title { font-size: 52px; }
-  .p-hero__photo { position: relative; right: auto; width: 100%; height: auto; }
+  .p-hero__photo { position: relative; right: auto; width: 100%; height: auto; aspect-ratio: 1340 / 1240; }
   .p-hero__photo::after {
     background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 22%);
   }
