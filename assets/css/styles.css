@@ -255,9 +255,9 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .hero__boxes .track { position: absolute; left: 0; top: 0; padding: 0; will-change: transform; }
 .hero__content { position: relative; padding-top: 168px; padding-bottom: 120px; }
 .hero__title { display: flex; flex-direction: column; font-stretch: 118%; line-height: 0.86; }
-.hero__monash { font-size: clamp(38px, 8vw, 81px); font-weight: 500; letter-spacing: -0.02em; }
-.hero__vista  { font-size: clamp(75px, 16.4vw, 140px); font-weight: 700; letter-spacing: -0.035em; margin-left: -0.03em; }
-.hero__name { margin-top: 36px; max-width: 660px; font-size: clamp(19px, 2vw, 26px); line-height: 1.35; font-weight: 300; }
+.hero__monash { font-size: clamp(38px, 8vw, 81px); font-weight: 400; letter-spacing: -0.02em; }
+.hero__vista  { font-size: clamp(75px, 16.4vw, 140px); font-weight: 600; letter-spacing: -0.035em; margin-left: -0.03em; }
+.hero__name { margin-top: 36px; max-width: 660px; font-size: clamp(19px, 2vw, 26px); line-height: 1.35; font-weight: 200; }
 .hero__name b { font-weight: 600; color: var(--mint); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-12); }
 
@@ -329,10 +329,11 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 
 /* Team page header: the team photo under a soft dark overlay, fading into black */
 .t-hero { position: relative; overflow: hidden; background: var(--black); }
-.t-hero__bg { position: absolute; left: 0; top: -12.5vw; width: 100%; height: auto; display: block; }
+.t-hero__bg { position: absolute; left: 0; top: -12.5vw; width: 100%; height: auto; display: block;
+  -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 100%); mask-image: linear-gradient(180deg, #000 62%, transparent 100%); }   /* the photo melts into black at its own bottom edge */
 .t-hero__shade {
   position: absolute; inset: 0; pointer-events: none;
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(0, 0, 0, 0.3);
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 72%, rgba(0, 0, 0, 0.65) 84%, rgba(0, 0, 0, 0.9) 94%, #000 100%);
 }
 .t-hero .site-header, .t-hero .page-header__body { position: relative; z-index: 2; }
@@ -398,7 +399,7 @@ html:not(.js) .read-more { display: none; }
   background: radial-gradient(ellipse 60% 60% at var(--gx, 35%) 55%, rgba(7,92,66,.55) 0%, rgba(5,46,34,.35) 40%, rgba(0,0,0,0) 72%); }
 .prow--flip .prow__glow { --gx: 65%; }
 .prow__media .prow__wide { aspect-ratio: 16 / 9; }           /* LiDAR photo */
-.prow__media .prow__platform { aspect-ratio: 1600 / 994; }   /* platform photo, uncropped */
+.prow__media .prow__platform { aspect-ratio: 1600 / 994; }   /* platform and capybara photos, uncropped */
 /* Exoskeleton: front and back views side by side, one chevron cut on each outer corner */
 .prow__pair { position: relative; display: flex; gap: 20px; }
 .prow__media .prow__pair .cut { flex: 1 1 0; min-width: 0; aspect-ratio: 402 / 424; background: #0d1114; }
