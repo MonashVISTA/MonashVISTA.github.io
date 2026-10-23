@@ -620,7 +620,7 @@ html:not(.js) .read-more { display: none; }
 /* 8. FOOTER ---------------------------------------------------------------- */
 .site-footer { padding: 80px 0 40px; }
 .site-footer__grid { display: flex; flex-wrap: wrap; gap: var(--space-12) 80px; align-items: flex-start; }
-.site-footer__lockup { width: 120px; }
+.site-footer__lockup { width: 100px; }   /* the chevron mark on its own, same as the header logo */
 .site-footer__col { flex: 1 1 200px; gap: 10px; }
 .site-footer__heading { font: 500 12px/1.3 var(--font-mono); letter-spacing: 0.08em; color: var(--ink-muted); }
 .site-footer a { text-decoration: none; }
