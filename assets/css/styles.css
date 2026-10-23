@@ -398,6 +398,7 @@ html:not(.js) .read-more { display: none; }
 .prow__glow { position: absolute; inset: -90px -60px; pointer-events: none;
   background: radial-gradient(ellipse 60% 60% at var(--gx, 35%) 55%, rgba(7,92,66,.55) 0%, rgba(5,46,34,.35) 40%, rgba(0,0,0,0) 72%); }
 .prow--flip .prow__glow { --gx: 65%; }
+.prow__text .person__bio--clamp { display: flex; flex-direction: column; gap: 14px; }   /* "Read more" on a project description: space between paragraphs */
 .prow__media .prow__wide { aspect-ratio: 16 / 9; }           /* LiDAR photo */
 .prow__media .prow__platform { aspect-ratio: 1600 / 994; }   /* platform and capybara photos, uncropped */
 /* Exoskeleton: front and back views side by side, one chevron cut on each outer corner */
