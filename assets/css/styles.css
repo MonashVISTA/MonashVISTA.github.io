@@ -21,7 +21,7 @@
 /* 1. TOKENS ---------------------------------------------------------------- */
 :root,
 [data-theme="light"] {
-  --mint: #05f2af;
+  --mint: #00f48e;
   --mint-deep: #027353;     /* mint for TEXT on light backgrounds (Mint itself is too light) */
   --mint-wash: #e1fef6;
   --black: #000000;
