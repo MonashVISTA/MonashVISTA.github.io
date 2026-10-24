@@ -1,7 +1,7 @@
 /* ==========================================================================
    Monash VISTA — site scripts
    1. Mobile menu
-   2. Footer year
+   2. Footer year (and the email "Copy" button, 3c)
    3. Tracking-frame reveal on scroll
    4. Hero point field: drifting "LiDAR returns" with tracked people
    ========================================================================== */
@@ -53,6 +53,27 @@
       var open = bio.classList.toggle('is-open');
       btn.setAttribute('aria-expanded', String(open));
       btn.textContent = open ? 'Show less ↑' : 'Read more ↓';
+    });
+  });
+
+  /* 3c. "Copy" button next to the footer email ---------------------------- */
+  document.querySelectorAll('.copy-email').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var done = function () {
+        btn.textContent = 'Copied ✓';
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done);
+      } else {            /* older browsers */
+        var t = document.createElement('textarea');
+        t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(t);
+      }
     });
   });
 
